@@ -1,0 +1,26 @@
+{
+  "name": "ROS 2 Thesis Environment",
+  "image": "osrf/ros:humble-desktop",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+        "installTools": true,
+        "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-iot.vscode-ros"
+      ]
+    }
+  },
+  "runArgs": [
+    "--net=host",
+    "--ipc=host"
+  ],
+  "postCreateCommand": "apt-get update && apt-get install -y python3-pip && echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc"
+}
